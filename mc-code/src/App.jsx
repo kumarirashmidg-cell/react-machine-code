@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import './App.css'
-import CountDownTimer from './question/CountDownTimer'
+import { useRef, useLayoutEffect } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const divRef = useRef(null);
 
-  return (
-    <>
-     <CountDownTimer/>
-       
-    </>
-  )
+  useLayoutEffect(() => {
+    console.log(divRef.current.offsetWidth);
+  }, []);
+
+  return <div ref={divRef}>Hello</div>;
 }
 
-export default App
+export default App;
