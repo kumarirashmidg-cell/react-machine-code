@@ -1,0 +1,123 @@
+//COUNTDOWN
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <div>
+        <span id="counter">10</span>
+        <button onclick="startCountDown()">start countdown</button>
+        <button onclick="pauseCountDown()">pause countdown</button>
+        <button onclick="resetCountDown()">reset countdown</button>
+      </div>
+      <script src="script.js"></script>
+  </body>
+</html>
+
+==================== JS =========================
+
+
+let counterContaier = document.getElementById('counter');
+
+let count = 10;
+let timer = null;
+
+function uiUpdate(){
+   counterContaier.innerText = String(count).padStart("2" , 0);
+}
+
+function startCountDown(){
+  if(timer) return;
+  timer = setInterval(() => {
+     count = count - 1;
+     if(count === 0){
+      clearInterval(timer)
+     }
+     uiUpdate();
+  }, 1000)
+}
+
+function pauseCountDown(){
+  clearInterval(timer);
+  timer = null;
+}
+
+function resetCountDown(){
+  clearInterval(timer);
+  timer = null;
+  count = 10;
+  uiUpdate();
+}
+
+------------------------------------------------
+//STOPWATCH
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <div>
+        <div>
+          <span id="hour-container">00</span>:
+          <span id="minute-container">00</span>:
+          <span id="second-container">00</span>
+        </div>
+        <button onclick="startStopWatch()">start countdown</button>
+        <button onclick="pauseStopWatch()">pause countdown</button>
+        <button onclick="resetStopWatch()">reset countdown</button>
+      </div>
+      <script src="script.js"></script>
+  </body>
+</html>
+
+
+==================== JS =========================
+
+
+let hourContainer = document.getElementById('hour-container');
+let minuteContainer = document.getElementById('minute-container');
+let secondContainer = document.getElementById('second-container');
+
+let hours = 0, minutes = 0, seconds = 0;
+let timer = null;
+
+function uiUpdate(){
+   hourContainer.innerText = String(hours).padStart("2" , 0);
+   minuteContainer.innerText = String(minutes).padStart("2" , 0);
+   secondContainer.innerText = String(seconds).padStart("2" , 0);
+}
+
+function startStopWatch(){
+  if(timer) return;
+  timer = setInterval(() => {
+     seconds++;
+     if(seconds === 60){
+      minutes ++;
+      seconds = 0;
+     }
+     if(minutes === 60){
+      hours ++;
+      minutes = 0;
+     }
+     uiUpdate();
+  }, 10)
+}
+
+function pauseStopWatch(){
+  clearInterval(timer);
+  timer = null;
+}
+
+function resetStopWatch(){
+  clearInterval(timer);
+  timer = null;
+  hours = 0;
+  minutes = 0;
+  seconds = 0;
+  uiUpdate();
+}
