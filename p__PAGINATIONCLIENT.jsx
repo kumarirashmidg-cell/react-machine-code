@@ -33,7 +33,7 @@ const Pagination1 = () => {
   const ei = si + ITEMONPAGE;
 
   return (
-    <div>
+    <div className="main">
       <div>
         <p>{loading && "loading"}</p>
         <p>{error && "error"}</p>
@@ -93,7 +93,7 @@ export default Pagination1;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 8px;
+  margin-bottom: 100px;
 }
 .item {
   border: 1px solid black;
@@ -107,5 +107,8 @@ export default Pagination1;
   position: absolute;
   bottom: 4px;
   left: 20%;
+}
+.main {
+  position: absolute;
 }
 

@@ -1,4 +1,3 @@
-// email regex :- !/^\S+@\S+\.\S+$/.test(formData.email)
 import React, { useEffect, useState } from "react";
 
 const FormValidation = () => {
@@ -29,6 +28,7 @@ const FormValidation = () => {
     if (!formData.email) {
       err.emailError = "Email is required";
     }
+    // else if // email regex :- !/^\S+@\S+\.\S+$/.test(formData.email)
     if (!formData.password) {
       err.passwordError = "Password is required";
     } else if (formData.password.length < 8) {

@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const OptimisticUI = () => {
   const [todos, setTodos] = useState([
     { id: 1, text: "Learn React" },
-    { id: 2, text: "Practice Coding" }
+    { id: 2, text: "Practice Coding" },
   ]);
 
   const [input, setInput] = useState("");
@@ -16,7 +16,7 @@ const OptimisticUI = () => {
 
     const tempTodo = {
       id: Date.now(),
-      text: input
+      text: input,
     };
 
     // Optimistic update
@@ -25,9 +25,7 @@ const OptimisticUI = () => {
 
     try {
       // Fake API request
-      await new Promise((resolve, reject) =>
-        setTimeout(() => resolve(), 2000)
-      );
+      await new Promise((resolve, reject) => setTimeout(() => reject(), 3000));
     } catch (error) {
       // rollback if API fails
       setTodos((prev) => prev.filter((todo) => todo.id !== tempTodo.id));

@@ -1,33 +1,18 @@
-// import React from "react";
-// import SortableTable from "./SortableTable";
-// import "./styles.css";
-
-// const App = () => {
-//   const data = [
-//     { name: "John", age: 28, salary: 50000 },
-//     { name: "Alice", age: 24, salary: 60000 },
-//     { name: "Bob", age: 32, salary: 45000 },
-//   ];
-
-//   const columns = [
-//     { label: "Name", key: "name" },
-//     { label: "Age", key: "age" },
-//     { label: "Salary", key: "salary" },
-//   ];
-
-//   return (
-//     <div>
-//       <h2>Sortable Table</h2>
-//       <SortableTable data={data} columns={columns} />
-//     </div>
-//   );
-// };
-
-// export default App;
-// -----------------
 import React, { useState } from "react";
 
-const SortableTable = ({ data, columns }) => {
+const DATA = [
+  { name: "John", age: 28, salary: 50000 },
+  { name: "Alice", age: 24, salary: 60000 },
+  { name: "Bob", age: 32, salary: 45000 },
+];
+
+const COLUMNS = [
+  { label: "Name", key: "name" },
+  { label: "Age", key: "age" },
+  { label: "Salary", key: "salary" },
+];
+
+const SortableTable = ({ data = DATA, columns = COLUMNS }) => {
   const [tableData, setTableData] = useState(data);
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "asc" });
 
@@ -74,7 +59,9 @@ const SortableTable = ({ data, columns }) => {
 };
 
 export default SortableTable;
-// -----------------------------
+
+// ------------------------
+
 .table {
   width: 500px;
   margin: 40px auto;
@@ -101,3 +88,4 @@ export default SortableTable;
 .table tr:nth-child(even) {
   background: #fafafa;
 }
+

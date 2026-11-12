@@ -36,7 +36,7 @@ const Pagination2 = () => {
 
   return (
     <div className="container">
-      <div className="flex flex-wrap gap-2">
+      <div>
         {loading && <p>Loading......</p>}
         {error && <p>Error......</p>}
         <div className="items">
